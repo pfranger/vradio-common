@@ -1,0 +1,125 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf360
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid102\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid201\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}}
+\margl1440\margr1440\vieww25320\viewh12020\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+
+\f0\fs24 \cf0 2012-03-23: Thinking about VMSN and how it could integrate into VirtualRadio or Tranzistor\
+\
+Is building VMSN or VMSN style pages into VirtualRadio a good idea? Josh had this idea of building a fan tool. The question is: what features should this fan tool offer? And what features does VMSN have? Markus had this idea of adding a chat to each channel. Oli thought it would be useful if users could tell other users and our system when exactly songs start and when they end - using the chat.\
+\
+VMSN has users and user registration. How do users register? They register a nickname and a password (the server checks for availability and validity when registering). When registering, they provide additional information: first name, last name, birth date, likes, dislikes, gender, email, phone. Should Tranzistor have users? Should we use Facebook user accounts?\
+\
+\
+\
+2011-12-06: Thinking about the DB table for a channel.\
+\
+It has become quite obvious that there isn't just one single type of channel we have to deal with. We have our original channel data structure:\
+\
+id\
+Station (display name of the radio station)\
+URL (URL of the web site for the radio station)\
+StreamURL (URL of the radio stream)\
+StreamFromat [sic] (MP3 for now)\
+ContactName (name of the person to contact at the radio station)\
+ContactEmail (email address of the contact person at the radio station)\
+NinjSelection (nein or ja, depending on if the station is part of the ninj selection)\
+OnAir (on or off, depending on the on-air status of the station)\
+Bemerkungen (first, remarks defined by station owner, later - if necessary - problem report)\
+PrefCat (category preferred by the radio station. this is hardly used)\
+idCat (ID of the category)\
+Problem (counter that counts the number of problems encountered with this station)\
+Port (not sure, only one station that is off-the-air has this set to 80, otherwise all have it set to 0)\
+\
+Right now, we have 4200 channels in our database, of which 773 are currrently considered on-the-air. This pool of channels is mostly managed by radio stations themselves.\
+\
+\
+\
+2011-12-05: Thinking about channel groups again. Android market has a top-level tab organization that I quite like:\
+\
+\pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\ql\qnatural\pardirnatural
+\ls1\ilvl0\cf0 {\listtext	\'95	}categories\
+{\listtext	\'95	}featured\
+{\listtext	\'95	}top paid\
+{\listtext	\'95	}top free\
+{\listtext	\'95	}top grossing\
+{\listtext	\'95	}top new paid\
+{\listtext	\'95	}top new free\
+{\listtext	\'95	}trendy\
+{\listtext	\'95	}staff picks\
+{\listtext	\'95	}editor's choice\
+\pard\tx560\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+\cf0 \
+Why do I like this organization? Because it is quite comprehensive, usage-driven, giving people ample ideas and suggestions. I would like vradio to be like this, too. More usage driven, more suggestive, yet comprehensive enough to support loyal customers with old listening habits.\
+\
+Here is a suggestion that could work for vradio:\
+\
+\pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\ql\qnatural\pardirnatural
+\ls2\ilvl0\cf0 {\listtext	\'95	}my favorites\
+\pard\tx940\tx1440\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li1440\fi-1440\ql\qnatural\pardirnatural
+\ls2\ilvl1\cf0 {\listtext	\uc0\u8259 	}allows adding a channel by specifying stream URL\
+{\listtext	\uc0\u8259 	}when empty, this list displays a note saying "No favorites yet. Look for stations in vradio.org picks (link) to get started."\
+\pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\ql\qnatural\pardirnatural
+\ls2\ilvl0\cf0 {\listtext	\'95	}vradio.org picks\
+{\listtext	\'95	}most popular (most listened to)\
+{\listtext	\'95	}categories (category drill down)\
+{\listtext	\'95	}search (meta drill down, including tags)\
+{\listtext	\'95	}my recordings\
+\pard\tx940\tx1440\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li1440\fi-1440\ql\qnatural\pardirnatural
+\ls2\ilvl1\cf0 {\listtext	\uc0\u8259 	}when empty, this list displays a note saying "No recordings yet. Press the record button when listening to a channel or turn on auto-recording in your preferences (link)."\
+\pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\ql\qnatural\pardirnatural
+\ls2\ilvl0\cf0 {\listtext	\'95	}preferences\
+\pard\tx940\tx1440\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li1440\fi-1440\ql\qnatural\pardirnatural
+\ls2\ilvl1\cf0 {\listtext	\uc0\u8259 	}skin\
+{\listtext	\uc0\u8259 	}recording always on by default\
+\pard\tx560\tx1120\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+\cf0 \
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+\cf0 2011-12-03: Thinking about the channel groups. How useful are these groups really? How do we expect our users to find channels? Which users do we currently have?\
+\
+In November 2011, we observed that the application started up on:\
+\
+375000 j2me phones\
+46000 symbian phones\
+13000 j2me aircel phones\
+\
+Android startups do not appear on the ninj webstat (which is where I collected this information). Here are a few rules:\
+\
+\pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\ql\qnatural\pardirnatural
+\ls3\ilvl0\cf0 {\listtext	\uc0\u8259 	}we have to make sure that existing customers of the above versions can still find all their radio stations\
+{\listtext	\uc0\u8259 	}we need more radio stations\
+{\listtext	\uc0\u8259 	}search should return results from shoutcast and listenlive.eu (and similar for canada, usa, australia, new zealand)\
+{\listtext	\uc0\u8259 	}we should have a real meta drill down similar to shoutcast or itunes.\
+{\listtext	\uc0\u8259 	}drill down should be server-side\
+{\listtext	\uc0\u8259 	}we could start out with a very simple text-based search that searches first in the title and then in other meta data\
+{\listtext	\uc0\u8259 	}iOS version should get completely new directory\
+{\listtext	\uc0\u8259 	}the new directory should be mainly server-side\
+{\listtext	\uc0\u8259 	}search should use optimized server-side functions\
+{\listtext	\uc0\u8259 	}the server side should be 100% vradio "owned": it should contain the existing directory, the listenlive.eu & co, and shoutcast\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+\cf0 \
+Never really thought of RTF as a useful documentation format, but actually it could be: it is text, yet it allows for some simple formatting and style. Having said that, let me proceed with what I was going to write here: some specification of this project and notes about dependencies and background information:\
+\
+\pard\tx560\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+\cf0 Q: What is the entry point of an app?\
+\
+A1: The main entry point seems to be the iPhoneInfo.plist file. How does the app framework know that it needs to read this file? Maybe it reads all plist files in the bundle? No, not exactly. The project build settings define that the builder uses this file and creates the Info.plist file with it. The Info.plist is ultimately the file that becomes part of the bundle. \
+\
+A2: The Info file contains a reference to MainWindow.xib (for iPhone and another file for iPad).\
+\
+A3: The MainWindow nib file contains several objects that represent runtime objects: the File's Owner, which is a UIApplication object, the First Responder, which is a UIResponder object, the App Delegate, which is an AppDelegate object, \
+\
+A4: Revisiting entry point: File Owner being UIApplication instantiates the application. The application object has an outlet "delegate", which is connected with the App Delegate object in the nib. The App Delegate in the nib instantiates an AppDelegate object that has two outlets: "navigationController" and "window".  Both refer to objects that the nib file instantiates: Window (UIWindow) and Navigation Controller (UINavigationController). The Navigation Controller owns two subviews: Navigation Bar and MainViewController.\
+\
+Q: Can we simplify this without throwing everything else out?\
+\
+A1: No, but we don't mind throwing the navigation controller away, because we don't want it right now. Right now, we want to control navigation on our own.\
+\
+A2: Let us do as much in code as possible and forget about Interface Builder for a while.\
+}

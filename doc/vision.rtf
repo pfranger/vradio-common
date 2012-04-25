@@ -1,0 +1,149 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf360
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid1\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid101\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid102\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid201\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}
+{\list\listtemplateid4\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid301\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid4}
+{\list\listtemplateid5\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid401\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid5}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}{\listoverride\listid5\listoverridecount0\ls5}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww19680\viewh12980\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+
+\f0\b\fs24 \cf0 2011-12-16: Analyzing Media Playback in iOS\
+
+\b0 \
+Media playback on the iOS follows an interesting model involving a playback queue, a library, and queries. The model is capable of mapping all concrete playback situations: it can handle songs, albums and playlists, repeat and shuffle, and a variety of features exposed in the iPad suite of software applications. The model is highly instructional and basically teaches me the following:\
+\
+\pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\ql\qnatural\pardirnatural
+\ls1\ilvl0\cf0 {\listtext	\uc0\u8259 	}A model is necessary to support any form of media playback. Only a clean model can provide the foundation for a suite of software applications that are meant to work together and give users a unified experience on all i devices. My media playback solution should follow a similar model suited for professional media playback.\
+\pard\tx560\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+
+\b \cf0 \
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+\cf0 2011-12-15: Breaking it down\
+\
+
+\b0 Recommended reading: iPod Library Access Programming Guide, Core Audio Overview, Audio Session Programming Guide\
+
+\b \
+
+\b0 If I was to build a software described in the post below, I would probably ship the first version sometime in 2013. My goal is to have a useful system on my Mac or on an iPad in a few days and then gradually and iteratively expand. During the expansion and completion of the feature set, I expect to completely rewrite or at least massively refactor the app several times. What is most important is to keep the feature set and core purpose of the app clean. How could I start?\
+\
+Let me first try a data-flow-centric approach: where does the data come from, where does it live, where does it go, where does it end up, what do we do with it, what is the final result? I would like to break this down in flow stages:\
+\
+\pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\ql\qnatural\pardirnatural
+\ls2\ilvl0\cf0 {\listtext	1.	}Import: start out on the library page. What should be on the library page? How do we import a track into the library?\
+\pard\tx940\tx1440\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li1440\fi-1440\ql\qnatural\pardirnatural
+\ls2\ilvl1\cf0 {\listtext	\uc0\u8259 	}The library is one of several main views, so we assign it to the first tab in a tabbed view. Other tabs will contain the staging area and the playlist area.\
+{\listtext	\uc0\u8259 	}There should be a table with labeled columns: song title, artist, song length.\
+{\listtext	\uc0\u8259 	}In our very first version (a first proof-of-concept test), the library page is a direct reference of the iPod library on iOS, so the import is implicit and automatic: everything in the iPod library automatically appears on the library page.\
+{\listtext	\uc0\u8259 	}In this first proof-of-concept test, data will actually live in the iPod library and all we do is play data from it using an iOS Music Player.\
+\pard\tx220\tx720\tx1120\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\ql\qnatural\pardirnatural
+\ls2\ilvl0\cf0 {\listtext	2.	}Staging area: the Music Player won't give us access to the audio data of a song, so we probably won't be able to set start and end clipping points. Time grid operations probably won't be possible, so looping will be difficult or limited.\
+\pard\tx940\tx1440\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li1440\fi-1440\ql\qnatural\pardirnatural
+\ls2\ilvl1\cf0 {\listtext	\uc0\u8259 	}We might be able to set the level of a song here\
+\pard\tx220\tx720\tx1120\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\ql\qnatural\pardirnatural
+\ls2\ilvl0\cf0 {\listtext	3.	}Playlist manager: we could obviously use the iPod playlists here. Using iPod playlists has one major disadvantage: we can only change playlists on the desktop. So we need to have our own playlist manager.\
+\pard\tx940\tx1440\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li1440\fi-1440\ql\qnatural\pardirnatural
+\ls2\ilvl1\cf0 {\listtext	\uc0\u8259 	}Select a playlist to edit (create one if necessary)\
+{\listtext	\uc0\u8259 	}Have a side-by-side view of source (staging area or library) and destination (current playlist)\
+{\listtext	\uc0\u8259 	}Select tracks from the source and add them to the destination\
+{\listtext	\uc0\u8259 	}Sort tracks in the destination\
+{\listtext	\uc0\u8259 	}Set playback properties of tracks in the destination: pause before, pause after, continue mode\
+{\listtext	\uc0\u8259 	}Set playlist in show mode\
+\pard\tx560\tx1120\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+\cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+\cf0 UI design principles: follow the Lightwave paradigm: no drop-down menus, no icons, use tabs and text buttons.\
+\
+
+\b \
+\
+2011-12-15: My Player Backer\
+\
+
+\b0 I found a - probably a bit cumbersome - working title for my software: my player backer. Or maybe I should follow the V naming scheme and call it vPlayback. The software should probably mix features of QCart and QLab, without being one of the two, really. Here is a list of features I would expect from it:\
+\
+\pard\tx560\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+\cf0 vPlayback should have strong library and media organization features. There should be a library of source material, a staging area for processed source material (clipped, looped, BMPed, equalized, normalized, all non-destructive), playlists.\
+Video tutorials are absolutely essential. Yasmine must be the voice on these tutorials for several reasons:\
+\pard\tx560\tx1120\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+\cf0 a woman sounds more appealing\
+a woman makes the tutorial appear less technical\
+a woman excludes fewer potential user groups. two geeks ratholing over techie features of the app scares away 90% of the people\
+women articulate better, have clearer trains of thought, and are generally easier to comprehend\
+\pard\tx560\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+\cf0 There should be a work mode and a show mode. The show mode should simply lock certain editing features and simplify the interface as much as possible.\
+The software should have some form of pairing feature with other instances of the same software (or software from the same suite) running on other devices. Paired devices can share data and synchronize playback. I could think of a vScore software that displays sheet music for musicians in an orchestra and always keeps flipping pages or maintain a song position marker in sync with a master instance. Or a software that displays the correct lyrics in vLyrics. The pairing should probably happen via WiFi, but a BT option should be considered for situations where a WiFi is not available (BT to be tested, maybe there are range issues)\
+Both sequential playback as well as user-defined-order playback within a playlist should be possible.\
+Individual playback items could be given several names. In the Q-series of software, they call them cues. That's what they call them in theater and in other domain areas. I like the word cue or audio cue, because it implies that there are several types of cue: audio cue, video cue, textual cue, etc. In iTunes and other domain areas (such as DJ domain), they call it track. Track probably works better for playbacks. I also think that I would not appear to be a knock-off of QCart if I call it track instead of cue. So track it is for now.\
+In theater, a group of cues for a purpose (scene, act, play, special purpose) is called a cue list. Play list is used in iTunes and other media players. I could keep that name. Other options are track list, track set. Set theory might work as an underlying user interface paradigm. Set theory always worked for me in math. I found discrete mathematics one of the most appealing domains of math because of its neat terminology and simplicity. Sets allow handling of huge data bodies by breaking them down into manageable collections of data, without ever losing the big picture. \
+\
+Let me develop this idea a little further: how would I explain this software to G-Sax and how would he use the software in a live situation? I would tell him that the software's main purpose is to play tracks in a way similar to iTunes, but with some modifications and extensions for professional use:\
+\pard\tx560\tx1120\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+\cf0 \
+\pard\tx220\tx720\tx1120\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\ql\qnatural\pardirnatural
+\ls3\ilvl0\cf0 {\listtext	\uc0\u8259 	}The software has a work and a show mode. While the work mode offers full editing of tracks and playlists, the show mode locks editing features and displays a much simpler user interface.\
+{\listtext	\uc0\u8259 	}The software plays tracks for shows and respects the fact that each performance situation is unique and requires a specialized setup. Sometimes, we want tracks to be played back seamlessly without gap using a DJ-style A-B crossfade, sometimes we want tracks to be equalized in a certain way so that their acoustic characteristics match other tracks played before and after, sometimes we want the software to stop playback after every track and wait for a trigger event (press of GO button) to start the next track, sometimes we want the software to wait 5 seconds before a track begins, sometimes we require a drum stick count-in, sometimes we want tracks to be played in sequence but with a 5 second gap between tracks, sometimes we think a track is too loud and want it played back quieter during a performance.\
+{\listtext	\uc0\u8259 	}In order to achieve this extended playback functionality, songs need to be organized slightly differently: iTunes stores all songs in a library and references these songs in playlists. Our software also maintains source material for tracks in a library, and it also maintains playlists for playback during shows. Tracks in the playlist can access the library directly like in iTunes. This can be useful in situations where we need to add a song to our show quickly and there is no time for editing or further processing of a track. This can be the case if we play at an event and a customer makes a spontaneous song request: in this case, we can quickly purchase the playback in iTunes and immediately import and use the song during a show. In general, we would like to edit tracks and access the edited tracks from playlists. For this more common scenario, we use and edit audio material in the library and store the resulting track in a staging area. This happens with a simple - yet powerful - non-destructive audio editor that allows us to combine any number of audio fragments from the library into a track using clipping and stitching tools. Users can further manipulate the track by changing its volume (using a curve editor), master level (output multiplier), by setting or overriding meta-data (song title, artist, album, genre, etc..), and by defining special points on the track time-axis (marking special areas such as intro, chorus or specifying loopable ares).\
+{\listtext	\uc0\u8259 	}The software allows us to add a time grid and time axis events to a track. We can use this feature to mark the beginning and end of the track, loopable areas (such as choruses and verses), name areas (intro, chorus, verse1, bridge, break, outro). The time grid also allows setting the BPM of a track or of areas within the track. The grid helps other features do their job: vamping over a loop, finding matching songs to cross-fade to, cross-fade to a matching song, etc.\
+\pard\tx220\tx720\tx1120\tx1680\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\ql\qnatural\pardirnatural
+\ls3\ilvl0\cf0 {\listtext	\uc0\u8259 	}Import: Users can import songs from the iTunes library on the device, via Web Browser from a computer on the same WiFi, from DropBox or other cloud storage, or via the vStorage system using either WiFi or the cloud. Use iTunes to purchase songs.\
+{\listtext	\uc0\u8259 	}Storage: the library, the staging area, playlists, and other settings are first class data. As such, this data should always be backed up in a secure place. There are several options for this: use DropBox or vStorage: as soon as a reliable WiFi connection is available and we actually want the software to sync (always off in show mode), the system stores data in a secure storage outside the device.\
+{\listtext	\uc0\u8259 	}Consider vPlayback an alternative to iTunes that does not clutter the display with useless visual candy such as album art, does not have buttons that actually leave the application and open an online store instead\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+\cf0 \
+
+\b \
+\
+2011-12-14: QCart\
+
+\b0 \
+Just found a software called QCart by Figure 53. This page reviews the app and provides some nice insight into its purpose, role and use: http://livedesignonline.com/gear/sound/1024_figure_53_qcart\
+\
+Their web page is http://figure53.com/qcart\
+\
+This is quite close to the playback software I have in mind. What follows is a list of QCart's feature highlights and in parentheses some remarks on how the feature relates to my vision of a playback software:\
+\
+\pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\ql\qnatural\pardirnatural
+\ls4\ilvl0\cf0 {\listtext	\uc0\u8259 	}Clean and simple interface (Obviously, this is a key promise of my software: since I intend to use this software in live shows, the interface must be robust during operation, both visually and functionally. There is nothing worse than a software that requires an operators undivided attention for more than a few seconds during a live show. This is a guaranteed recipe for a panic attack.)\
+{\listtext	\uc0\u8259 	}Trigger cues via mouse, keyboard, or MIDI (My interface shall eventually run on a touch screen device, so we would like to trigger cues with the mouse only)\
+{\listtext	\uc0\u8259 	}Level meter for currently selected audio output (I think this means that there is a level meter of the sum of all sound sources on the master output. Levels are of utmost importance. In my experience, the level is the first and most important attribute of sound playback that usually needs fixing. The first thing that anybody - be it viewer, listener, actor, musician, director or producer - will be complaining about. We must be able to set the level of a sound effect or music track for each anticipated show or performing situation. It seems that QCart handles many other playback attributes in a generic way using Mac system audio plugins. My software will probably hard-wire additional sound processing.)\
+{\listtext	\uc0\u8259 	}Lock your cart to put it in show mode (My software should also have a programming and a play mode. During programming, more functions are available, the interface is more complex and we expect the user to focus entirely on the task for a significant amount of time. Show mode should provide a simpler interface, lock some functions. The software in show mode should be prone to manipulation errors than the programming mode)\
+{\listtext	\uc0\u8259 	}Apply Audio Units to each sound (I assume they mean plugins. Our software should be self-contained for several reasons: I want to leave options open for future enhancements and pro versions, Apple code signing makes plug-in architectures difficult if not impossible, I want to keep the software as simple as possible)\
+{\listtext	\uc0\u8259 	}Waveform editor for fast, non-destructive trimming (This feature is essential. We should follow the non-destructive editing principles of audio software: the software keeps audio source material in an audio library similar to the iTunes library. The software never changes the source material. Instead, sound cues reference source material in a way that is analogous to iTunes playlists. Sound cues are organized in carts, and carts are organized in tabs. Sound cues use portions of the source material and play them back using start- end- and loop-markers. Audio then travels through a level stage, optional effect stage, mix-down stage and finally into the a stereo audio device. My software should perform the same steps and follow the same principles.)\
+{\listtext	\uc0\u8259 	}Change the color of each button (Using color as a visual cue is essential for live performance. iTunes uses album art, which is utterly confusing and distracting in a live situation. We should use simple visual and mental cues such as colors, numbers, short text and avoid symbols, icons and art)\
+{\listtext	\uc0\u8259 	}Loop and hold options for each cue (I need this too, but I would like more sophisticated loop control. I would like to have loopable sections and offer sophisticated loop rules and live loop control)\
+{\listtext	\uc0\u8259 	}Multiple tabs/carts per document (I like this organization. Document has 1 or more tabs has one or more cues. Maybe I will use different names).\
+{\listtext	\uc0\u8259 	}Supports Lion's full-screen mode (does not apply to my software)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+\cf0 \
+\
+\
+
+\b 2011-12-14: QLab\
+
+\b0 \
+QLab is a more complex software by the same manufacturer as QCart. \
+\
+Here is how QLab sees things: cues are the fundamental building block of QLab. Cues are events that the operator triggers during a performance. Each kind of cue performs a different kind of action. An Audio Cue will play an audio file, a Pause Cue will pause other cues. Cues live in cue lists, which live in workspaces. Several basic properties are shared by most cues. These include the following:\
+\
+\pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\ql\qnatural\pardirnatural
+\ls5\ilvl0\cf0 {\listtext	\uc0\u8259 	}Number: users assign a number to a cue. A number is unique within a workspace and are not subject to any format restrictions. Valid cue numbers include: "1", "100", "10.5", "A", "BB, \'85\
+{\listtext	\uc0\u8259 	}Name: users can give a cue any name. This may be empty.\
+{\listtext	\uc0\u8259 	}Target: if it exists, describes what resource the cue acts upon. This may be a file or another cue.\
+{\listtext	\uc0\u8259 	}Target Number: if it exists, the number of a targeted cue\
+{\listtext	\uc0\u8259 	}Pre Wait: determines how long the playback of the cue sequence is blocked before the cue is fired.\
+{\listtext	\uc0\u8259 	}Action Duration: some cues are instantaneous and do not display a duration, others take some time to complete\
+{\listtext	\uc0\u8259 	}Post Wait: how long the playback of the cue sequence is blocked after a cue is fired.\
+{\listtext	\uc0\u8259 	}Continue Mode: determines if playback continues automatically after a cue is fired and the post wait is complete. There are are three modes: do not continue (no cues fired after), auto-continue (after cue is fired, QLab waits for the duration specified by the post wait and then automatically fires the next cue), and auto-follow (QLab waits for the action duration and then automatically fires the next cue. This is standard iTunes behavior).\
+\
+\
+A cue list has a playback position. A cue list can be fired/triggered. When a cue list is triggered, a cue sequence is executed. \
+A cue sequence consists of one or more cues that are executed in sequence without any more triggers. \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+\cf0 \
+}
