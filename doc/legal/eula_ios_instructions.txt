@@ -1,0 +1,21 @@
+Instructions for Minimum Terms of Developer’s 
+End-User License Agreement
+
+1. Acknowledgement: You and the end-user must acknowledge that the EULA is concluded between You and the end-user only, and not with Apple, and You, not Apple, are solely responsible for the Licensed Application and the content thereof. The EULA may not provide for usage rules for Licensed Applications that are less restrictive than the Usage Rules set forth for Licensed Applications in, or otherwise be in conflict with, the App Store Terms of Service as of the Effective Date (which You acknowledge You have had the opportunity to review).
+
+2. Scope of License: The license granted to the end-user for the Licensed Application must be limited to a non-transferable license to use the Licensed Application on any iPhone or iPod touch that the end-user owns or controls and as permitted by the Usage Rules set forth in the App Store Terms of Service.
+
+3. Maintenance and Support: You must be solely responsible for providing any maintenance and support services with respect to the Licensed Application, as specified in the EULA, or as required under applicable law. You and the end-user must acknowledge that Apple has no obligation whatsoever to furnish any maintenance and support services with respect to the Licensed Application.
+
+4. Warranty: You must be solely responsible for any product warranties, whether express or implied by law, to the extent not effectively disclaimed. The EULA must provide that, in the event of any failure of the Licensed Application to conform to any applicable warranty, the end-user may notify Apple, and Apple will refund the purchase price for the Licensed Application to that end-user; and that, to the maximum extent permitted by applicable law, Apple will have no other warranty obligation whatsoever with respect to the Licensed Application, and any other claims, losses, liabilities, damages, costs or expenses attributable to any failure to conform to any warranty will be Your sole responsibility.
+
+5. Product Claims: You and the end-user must acknowledge that You, not Apple, are responsible for addressing any claims of the end-user or any third party relating to the Licensed Application or the end-user’s possession and/or use of that Licensed Application, including, but not limited to: (i) product liability claims; (ii) any claim that the Licensed Application fails to conform to any applicable legal or regulatory requirement; and (iii) claims arising under consumer protection or similar legislation. The EULA may not limit Your liability to the end-user beyond what is permitted by applicable law.
+
+6. Intellectual Property Rights: You and the end-user must acknowledge that, in the event of any third party claim that the Licensed Application or the end-user’s possession and use of that Licensed Application infringes that third party’s intellectual property rights, You, not Apple, will be solely responsible for the investigation, defense, settlement and discharge of any such intellectual property infringement claim.
+
+7. Legal Compliance: The end-user must represent and warrant that (i) he/she is not located in a country that is subject to a U.S. Government embargo, or that has been designated by the U.S. Government as a “terrorist supporting” country; and (ii) he/she is not listed on any U.S. Government list of prohibited or restricted parties.
+
+8. Developer Name and Address: You must state in the EULA Your name and address, and the contact information (telephone number; E-mail address) to which any end-user questions, complaints or claims with respect to the Licensed Application should be directed.
+
+9. Third Party Beneficiary: You and the end-user must acknowledge and agree that Apple, and Apple’s subsidiaries, are third party beneficiaries of the EULA, and that, upon the end-user’s acceptance of the terms and conditions of the EULA, Apple will have the right (and will be deemed to have accepted the right) to enforce the EULA against the end-user as a third party beneficiary thereof.
+
