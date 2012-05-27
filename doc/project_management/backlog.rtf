@@ -1,14 +1,67 @@
-{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf360
-{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\rtf1\ansi\ansicpg1252\cocoartf1138\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 LucidaGrande;}
 {\colortbl;\red255\green255\blue255;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{check\}}{\leveltext\leveltemplateid1\'01\uc0\u10003 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid101\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}}
 \paperw11900\paperh16840\margl1440\margr1440\vieww18740\viewh13700\viewkind0
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
 
 \f0\b\fs24 \cf0 \ul \ulc0 Backlog (planned features / user stories) for Tranzistor\
 
 \b0 \ulnone \
 
-\b Story:
+\b Story: 
+\b0 recycle old games and apps to iOS and use them to advertise and cross-sell Tranzistor and Virtual Radio.\
+
+\b Description: 
+\b0 I looked into two games that are candidates for an iOS port: RFTO and Picross Mobile. \
+Porting RFTO 2D to an iOS 3D tennis game could be feasible. Let me list some facts that either positively or negatively affect the feasibility and the chances of success of the project:\
+\pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\pardirnatural
+\ls1\ilvl0\cf0 {\listtext	
+\f1 \uc0\u10003 
+\f0 	}I wrote the game for Java phones in a few weeks at the time. Writing a tennis game for a handheld platform is feasible for one person.\
+\ls1\ilvl0{\listtext	
+\f1 \uc0\u10003 
+\f0 	}Device fragmentation on iOS is less of a problem than on Java ME.\
+\ls1\ilvl0{\listtext	
+\f1 \uc0\u10003 
+\f0 	}The brand Roger Federer is still one of the top sports brands in 2012 and for many years to come.\
+{\listtext	
+\f1 \uc0\u10003 
+\f0 	}I have not seen a good tennis game for iOS up until now. This could also be a risk: possibly the platform does not lend itself for this type of game.\
+\ls1\ilvl0{\listtext	
+\f1 \uc0\u10003 
+\f0 	}There are some interesting 2D libraries out there that could help me significantly: one of them is cocos2d\
+\ls1\ilvl0{\listtext	
+\f1 \uc0\u10003 
+\f0 	}My iOS and ObjectiveC skills are gradually improving and programming for iOS is not much of an obstacle anymore compared to Java.\
+\pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\pardirnatural
+\ls2\ilvl0
+\b \cf0 {\listtext	\uc0\u8259 	}
+\b0 The bar is higher for iOS games. Music and sound have to be of better quality, motions need to be smoother and in more detail, graphics need to be redone for higher resolutions, menu graphics need to be more beautiful, design matters even more.\
+{\listtext	\uc0\u8259 	}The iOS requires a completely different control scheme based on a touch screen.\
+{\listtext	\uc0\u8259 	}We need to provide better help and tutorials.\
+\ls2\ilvl0
+\b {\listtext	\uc0\u8259 	}
+\b0 I need to learn complex APIs (such as cocos2d) and commit to the APIs to a certain degree.\
+\ls2\ilvl0
+\b {\listtext	\uc0\u8259 	}
+\b0 We are not 100% sure if the Roger Federer management would endorse the game.
+\b \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \
+Story:
+\b0  Spider that collects metadata for radio stations.\
+
+\b Description:
+\b0  Write a simple - but extensible - spider that collects metadata about radio stations in the vr_list. We are primarily interested in icy metadata such as icy-name, icy-genre, station URL, logos, icons, playlists, etc. The spider should run in our server architecture, which is basically a Java servlet engine. It should also perform the legacy task of radio station checking. The up-status and quality information also counts as channel metadata, so this task belongs in the spider.\
+
+\b Status:
+\b0  just an idea\
+
+\b \
+Story:
 \b0  Integration of UPnP \
 
 \b Description:
