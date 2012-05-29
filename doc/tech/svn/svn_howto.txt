@@ -1,0 +1,30 @@
+setting up subversion server:
+
+svnadmin create /svnrepos
+vi /svnrepos/conf/svnserve.conf 
+set the following lines:
+
+anon-access = none
+auth-access = write
+password-db = passwd
+
+vi /svnrepos/conf/passwd
+add lines such as:
+
+tony = mypassword
+
+svn import /projects/myrailsproject file:///svnrepos/myrailsproject
+
+cd /etc/init.d
+touch svnserve
+
+vi svnserve
+add a line:
+svnserve -d -r /svnrepos
+
+chmod +x svnserve
+update-rc.d svnserve defaults
+
+test:
+
+svn co svn://192.168.0.2/svnrepos/myyrailsproject
