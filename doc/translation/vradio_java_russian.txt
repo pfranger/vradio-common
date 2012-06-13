@@ -1,0 +1,70 @@
+http://www.translatorstown.com for freelance translators
+
+VirtualRadio now on your iPhone and android:
+
+VirtualRadio теперь в Вашем iPhone и Android
+
+Stolen on web:
+
+Виртуальное радио использует GPRS, EDGE или 3G для подключения к сети. Цены на трафик ты можешь узнать у своего оператора сотовой связи!
+
+Virtual radio uses GPRS, EDGE or 3G to connect to the network. Prices on the traffic you can ask your mobile operator!
+
+Stolen on http://itunes.apple.com/ru/app/onlajn-radio/id411632020?mt=8
+
+это современный радиоприемник,
+предназначенный для приема интернет радиостанций. 
+
+Позволяет получить доступ к базе, содержащей более 51.000 радиостанций и более 85.000 URLs радио каналов. 
+
+Все радиостанции сгруппированы по 191 странам и 749 жанрам. 
+
+a modern radio, intended to receive Internet radio stations. Allows access to a database containing more than 51,000 radio stations and over 85.000 URLs radio channels. All radio stations are grouped into 191 countries and 749 genres.
+
+
+ad Объявление
+sound Звук
+start Пуск
+stop Стоп
+group of channels Группы каналов
+channels Каналы
+favorites Избранное
+add to favorites Добавить в избранное
+data Данные: 
+session (Сессия) /
+total (Всего)
+uploaded Загружен
+failed to load Ошибка загрузки
+data Данные: 
+session (Сессия) /
+total (Всего)
+cancellation Отмена
+edit Редактировать: 
+enter the channel: Введите канал: 
+title, name Название
+error Ошибка
+sound Звук
+buffering Буферизация
+finish Готово
+name, title Название: 
+initialization Инициализация
+choose Выбрать
+cancellation Отмена
+options Опции
+group of channels Группы каналов
+channels Каналы
+exit Выход
+start Пуск
+stop Стоп
+back Назад
+choose Выбрать
+about the program О программе
+favorites Избранное
+add to favorites Добавить в избранное
+posted Добавлено
+up Вверх
+down Вниз
+remove Удалить
+new Новый
+edit Редактировать
+resetting the counter Сброс данных счетчика
