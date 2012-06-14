@@ -1,0 +1,37 @@
+OTA delivery
+------------
+
+I use a library called HockeyKit on my server to deliver apps 
+directly to phones over WiFi.
+
+The URL of the library is https://github.com/TheRealKerni/HockeyKit/wiki
+
+The URL for OTA downloads is http://pfranger.com/iosota
+
+In order to offer an app for download for alpha or beta testers,
+I need to copy it into the server directory inside a subdirectory
+<bundle id>. The required files are an IPA and a PLIST files.
+Example: the file URLs for the tranzistor test app are:
+http://pfranger.com/iosota/com.tranzistorradio/tranzistor.ipa
+http://pfranger.com/iosota/com.tranzistorradio/tranzistor.plist
+
+The IPA file holds the app (executable, resources, meta-data) and
+a mobile provisioning profile. The provisioning profile must contain
+the UDID (device ID) of the phone that the app should run on.
+
+Create an IPA file from Xcode: 
+  1. product->build for->build for archiving
+  2. product->archive
+  3. rename the archive to tranzistor (or whatever name you want)
+  4. click on share
+    iOS app Store Package (.ipa)
+    iPhone Developer (currently matches ...)
+    Next
+    Name it tranzistor (or whatever)
+    Select Desktop as file destination (or any other location)
+    Select "save for enterprise distribution"
+    Application URL: http://pfranger.com/iosota/com.tranzistorradio/tranzistor.ipa
+    Title: tranzistor
+    Save
+  5. copy (using scp) the two created files (ipa and plist) to the server
+
