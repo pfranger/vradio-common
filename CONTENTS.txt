@@ -1,0 +1,14 @@
+vradio-common
+*************
+
+This git project contains resources other than source code relevant for
+vradio.
+
+bin:   Useful scripts and programs for working with vradio.
+
+doc:   Documents related to vradio.
+
+gfx:   Graphic assets used in vradio.
+
+setup: Useful set-up steps when starting with a clean dev workstation or
+       server.
