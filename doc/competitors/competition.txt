@@ -3,3 +3,5 @@ tunein
 sirius xm
 spotify
 pandora
+radioio
+sky fm
