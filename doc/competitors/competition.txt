@@ -5,3 +5,8 @@ spotify
 pandora
 radioio
 sky fm
+Slacker 
+Iheartradio 
+Spotify 
+Deezer 
+Winamp
