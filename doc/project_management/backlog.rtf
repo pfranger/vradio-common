@@ -15,6 +15,26 @@
 
 \b0 \ulnone \
 
+\b Story
+\b0 : better UI feedback after adding or updating station\
+
+\b Description
+\b0 : right now, all the UI does after adding or updating a station is say thank you. No input field validation, no channel check, no email notification, nothing. We can improve this in many ways. The first would be to truly validate input fields: check for empty fields, \
+
+\b Status
+\b0 : urgent and todo\
+\
+
+\b Story
+\b0 : migration of DB, step 1: master legacy\
+
+\b Description
+\b0 : migrate the DB to v2, while maintaining the master status of the legacy DB. There should be a mirror command on v2. There should also be a legacyFix command on v2, allowing us to fix problems in the legacy DB.\
+
+\b Status
+\b0 : done, continuous improvement\
+\
+
 \b Story:
 \b0  Root starting points\
 
@@ -37,10 +57,10 @@ The app appears to have 5 main tabs/sections:\
 \
 \pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\ql\qnatural\pardirnatural
 \ls1\ilvl0\cf0 {\listtext	\uc0\u8259 	}Categories (icon is a table or list)\
-\ls1\ilvl0{\listtext	\uc0\u8259 	}Channels (icon is a star)\
-\ls1\ilvl0{\listtext	\uc0\u8259 	}Favorites (icon is a heart)\
-\ls1\ilvl0{\listtext	\uc0\u8259 	}Shows (icon is a list covered by a magnifying glass)\
-\ls1\ilvl0{\listtext	\uc0\u8259 	}Settings (icon is the common settings icon) \
+{\listtext	\uc0\u8259 	}Channels (icon is a star)\
+{\listtext	\uc0\u8259 	}Favorites (icon is a heart)\
+{\listtext	\uc0\u8259 	}Shows (icon is a list covered by a magnifying glass)\
+{\listtext	\uc0\u8259 	}Settings (icon is the common settings icon) \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
 \cf0 \
 The top of the UI seems constant. Top left is channel logo, top middle is artist or channel name, below that is the current song or show, and on the top right we see an icon that shows a square made up of 4 smaller squares.\
@@ -54,11 +74,11 @@ Below this - in the main UI area - the content appears to be variable and contex
 The features they promote on the iTunes store are:\
 \pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\ql\qnatural\pardirnatural
 \ls2\ilvl0\cf0 {\listtext	\uc0\u8259 	}Go back in time up to 5 hours to hear previously aired programming on most channels\
-\ls2\ilvl0{\listtext	\uc0\u8259 	}Start Now allows you to start shows from their beginning even if you\'92ve just tuned to that channel\
-\ls2\ilvl0{\listtext	\uc0\u8259 	}TuneStart automatically starts the currently playing song from the beginning when you tune to a music channel\
-\ls2\ilvl0{\listtext	\uc0\u8259 	}Pause lets you pause live radio and pick up right where you left off\
-\ls2\ilvl0{\listtext	\uc0\u8259 	}Fast forward and rewind lets you navigate through previously aired programming\
-\ls2\ilvl0{\listtext	\uc0\u8259 	}Show finder lets you find and set alerts for your favorite shows\
+{\listtext	\uc0\u8259 	}Start Now allows you to start shows from their beginning even if you\'92ve just tuned to that channel\
+{\listtext	\uc0\u8259 	}TuneStart automatically starts the currently playing song from the beginning when you tune to a music channel\
+{\listtext	\uc0\u8259 	}Pause lets you pause live radio and pick up right where you left off\
+{\listtext	\uc0\u8259 	}Fast forward and rewind lets you navigate through previously aired programming\
+{\listtext	\uc0\u8259 	}Show finder lets you find and set alerts for your favorite shows\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
 \cf0 \
 I generally like the time bar and rew/ff features. If we added support for this on the client side, we could extend this to recording and offline listening. Another cool feature would be on demand listening of previously aired programming. This would require storing and serving shows on the server side.\
@@ -66,18 +86,18 @@ I generally like the time bar and rew/ff features. If we added support for this 
 We could divide the available channels into 3 main categories:\
 \pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\ql\qnatural\pardirnatural
 \ls3\ilvl0\cf0 {\listtext	\uc0\u8259 	}Exclusive Tranzistor Channels\
-\ls3\ilvl0{\listtext	\uc0\u8259 	}Top Channels\
-\ls3\ilvl0{\listtext	\uc0\u8259 	}Other Channels\
+{\listtext	\uc0\u8259 	}Top Channels\
+{\listtext	\uc0\u8259 	}Other Channels\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
 \cf0 \
 We could offer premium features for the first two categories. We could decide which of the non-exclusive Tranzistor channels would enter the top category. This would keep the number of channels we need to do work for finite and controllable. Premium features could provide the following data:\
 \pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\ql\qnatural\pardirnatural
 \ls4\ilvl0\cf0 {\listtext	\uc0\u8259 	}Channel art (channel icons of different sizes to start with)\
-\ls4\ilvl0{\listtext	\uc0\u8259 	}Album or show art\
-\ls4\ilvl0{\listtext	\uc0\u8259 	}Program schedules\
-\ls4\ilvl0{\listtext	\uc0\u8259 	}On-demand download of previously aired programming \
-\ls4\ilvl0{\listtext	\uc0\u8259 	}Play lists of previously aired shows and songs\
-\ls4\ilvl0{\listtext	\uc0\u8259 	}Enhanced channel meta-data (blurb, title(s), genre(s), tags, keywords, URLs, identification features)\
+{\listtext	\uc0\u8259 	}Album or show art\
+{\listtext	\uc0\u8259 	}Program schedules\
+{\listtext	\uc0\u8259 	}On-demand download of previously aired programming \
+{\listtext	\uc0\u8259 	}Play lists of previously aired shows and songs\
+{\listtext	\uc0\u8259 	}Enhanced channel meta-data (blurb, title(s), genre(s), tags, keywords, URLs, identification features)\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
 \cf0 \
 
