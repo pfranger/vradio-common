@@ -5,15 +5,41 @@
 {\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid101\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}
 {\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid201\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}
 {\list\listtemplateid4\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid301\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid4}
-{\list\listtemplateid5\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{check\}}{\leveltext\leveltemplateid401\'01\uc0\u10003 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid5}
-{\list\listtemplateid6\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid501\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid6}}
-{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}{\listoverride\listid5\listoverridecount0\ls5}{\listoverride\listid6\listoverridecount0\ls6}}
+{\list\listtemplateid5\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid401\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid5}
+{\list\listtemplateid6\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{check\}}{\leveltext\leveltemplateid501\'01\uc0\u10003 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid6}
+{\list\listtemplateid7\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid601\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid7}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}{\listoverride\listid5\listoverridecount0\ls5}{\listoverride\listid6\listoverridecount0\ls6}{\listoverride\listid7\listoverridecount0\ls7}}
 \paperw11900\paperh16840\margl1440\margr1440\vieww18740\viewh13700\viewkind0
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
 
-\f0\b\fs24 \cf0 \ul \ulc0 Backlog (planned features / user stories) for Tranzistor\
+\f0\b\fs24 \cf0 \ul \ulc0 	Backlog (planned features / user stories) for Tranzistor\
 
 \b0 \ulnone \
+Story: Move to new DB\
+Description: Stop using fields of old DB and start using new DB. Start by eliminating problem, bemerkungen, deep_url.\
+Status: todo\
+\
+
+\b Story
+\b0 : Eliminate trash from DB\
+
+\b Description
+\b0 : After spending a few weeks improving the DB and providing tools to do so, it is time to write down my thoughts:\
+\
+\pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\ql\qnatural\pardirnatural
+\ls1\ilvl0\cf0 {\listtext	\uc0\u8259 	}Some of the stations could be interesting partners: radionomy as an aggregator seems interesting, some specialty stations such as classicalarchives.com seem quite promising, but most of the existing and newly added stations are trash: from regions with little interest (poor emerging and third world countries) and demographics with little potential (religious dominant).\
+{\listtext	\uc0\u8259 	}Stations generally have bad to horrible web pages with little traffic. So far, very few stations link to us. We get less than 10k hits per month from referrers.\
+{\listtext	\uc0\u8259 	}Station links do not seem to lead to download traffic. Downloads in iOS are so low that I consider them App Store Search noise.\
+{\listtext	\uc0\u8259 	}The potential loss of eliminating email and web contacts from our DB is near to 0. The only note-worthy reaction to our email communication up until now was a message on the investorhub sety board, which said that VirtualRadio communicates actively. Maybe we should just keep the email address and delete everything else if a station is trash.\
+\pard\tx560\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+\cf0 \
+I should not get rid of some of the information in stations, even if station is trash: station name, URL, contact name, contact email could be useful.\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+
+\b \cf0 Status
+\b0 : later\
+\
 
 \b Story
 \b0 : better UI feedback after adding or updating station\
@@ -22,7 +48,7 @@
 \b0 : right now, all the UI does after adding or updating a station is say thank you. No input field validation, no channel check, no email notification, nothing. We can improve this in many ways. The first would be to truly validate input fields. Then we should work with email notifications. After adding or updating a channel, we should tell the user that it will take 24 to 48 hours until the VirtualRadio users can see the change. We should also run some tests so that the user knows right away if VirtualRadio can run the channel or not. And then we should tell the user that we will inform him about the notification by email.\
 
 \b Status
-\b0 : urgent and todo\
+\b0 : 2012-07-30: improved this: eliminated unused fields, improved UI text, improved thank you page, built in live station check.\
 \
 
 \b Story
@@ -56,7 +82,7 @@ I guess the Sirius XM product that we are most likely to compete with is SiriusX
 The app appears to have 5 main tabs/sections:\
 \
 \pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\ql\qnatural\pardirnatural
-\ls1\ilvl0\cf0 {\listtext	\uc0\u8259 	}Categories (icon is a table or list)\
+\ls2\ilvl0\cf0 {\listtext	\uc0\u8259 	}Categories (icon is a table or list)\
 {\listtext	\uc0\u8259 	}Channels (icon is a star)\
 {\listtext	\uc0\u8259 	}Favorites (icon is a heart)\
 {\listtext	\uc0\u8259 	}Shows (icon is a list covered by a magnifying glass)\
@@ -73,7 +99,7 @@ Below this - in the main UI area - the content appears to be variable and contex
 \
 The features they promote on the iTunes store are:\
 \pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\ql\qnatural\pardirnatural
-\ls2\ilvl0\cf0 {\listtext	\uc0\u8259 	}Go back in time up to 5 hours to hear previously aired programming on most channels\
+\ls3\ilvl0\cf0 {\listtext	\uc0\u8259 	}Go back in time up to 5 hours to hear previously aired programming on most channels\
 {\listtext	\uc0\u8259 	}Start Now allows you to start shows from their beginning even if you\'92ve just tuned to that channel\
 {\listtext	\uc0\u8259 	}TuneStart automatically starts the currently playing song from the beginning when you tune to a music channel\
 {\listtext	\uc0\u8259 	}Pause lets you pause live radio and pick up right where you left off\
@@ -85,14 +111,14 @@ I generally like the time bar and rew/ff features. If we added support for this 
 \
 We could divide the available channels into 3 main categories:\
 \pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\ql\qnatural\pardirnatural
-\ls3\ilvl0\cf0 {\listtext	\uc0\u8259 	}Exclusive Tranzistor Channels\
+\ls4\ilvl0\cf0 {\listtext	\uc0\u8259 	}Exclusive Tranzistor Channels\
 {\listtext	\uc0\u8259 	}Top Channels\
 {\listtext	\uc0\u8259 	}Other Channels\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
 \cf0 \
 We could offer premium features for the first two categories. We could decide which of the non-exclusive Tranzistor channels would enter the top category. This would keep the number of channels we need to do work for finite and controllable. Premium features could provide the following data:\
 \pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\ql\qnatural\pardirnatural
-\ls4\ilvl0\cf0 {\listtext	\uc0\u8259 	}Channel art (channel icons of different sizes to start with)\
+\ls5\ilvl0\cf0 {\listtext	\uc0\u8259 	}Channel art (channel icons of different sizes to start with)\
 {\listtext	\uc0\u8259 	}Album or show art\
 {\listtext	\uc0\u8259 	}Program schedules\
 {\listtext	\uc0\u8259 	}On-demand download of previously aired programming \
@@ -112,7 +138,7 @@ We could offer premium features for the first two categories. We could decide wh
 \b0 I looked into two games that are candidates for an iOS port: RFTO and Picross Mobile. \
 Porting RFTO 2D to an iOS 3D tennis game could be feasible. Let me list some facts that either positively or negatively affect the feasibility and the chances of success of the project:\
 \pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\ql\qnatural\pardirnatural
-\ls5\ilvl0\cf0 {\listtext	
+\ls6\ilvl0\cf0 {\listtext	
 \f1 \uc0\u10003 
 \f0 	}I wrote the game for Java phones in a few weeks at the time. Writing a tennis game for a handheld platform is feasible for one person.\
 {\listtext	
@@ -131,15 +157,15 @@ Porting RFTO 2D to an iOS 3D tennis game could be feasible. Let me list some fac
 \f1 \uc0\u10003 
 \f0 	}My iOS and ObjectiveC skills are gradually improving and programming for iOS is not much of an obstacle anymore compared to Java.\
 \pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\ql\qnatural\pardirnatural
-\ls6\ilvl0
+\ls7\ilvl0
 \b \cf0 {\listtext	\uc0\u8259 	}
 \b0 The bar is higher for iOS games. Music and sound have to be of better quality, motions need to be smoother and in more detail, graphics need to be redone for higher resolutions, menu graphics need to be more beautiful, design matters even more.\
 {\listtext	\uc0\u8259 	}The iOS requires a completely different control scheme based on a touch screen.\
 {\listtext	\uc0\u8259 	}We need to provide better help and tutorials.\
-\ls6\ilvl0
+\ls7\ilvl0
 \b {\listtext	\uc0\u8259 	}
 \b0 I need to learn complex APIs (such as cocos2d) and commit to the APIs to a certain degree.\
-\ls6\ilvl0
+\ls7\ilvl0
 \b {\listtext	\uc0\u8259 	}
 \b0 We are not 100% sure if the Roger Federer management would endorse the game.
 \b \
