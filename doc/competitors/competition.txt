@@ -1,4 +1,5 @@
 Radio:
+******
 
 radio.de
 tunein
@@ -18,22 +19,31 @@ http://www.mikesradioworld.com (directory, scan this maybe?)
 http://www.bandcentral.com/
 http://www.moblynet.com
 
-Radio aggretators:
+
+Radio aggregators:
+******************
 
 http://delicast.com/
 http://www.internet-radio.com
 http://www.live365.com
 
+
 Music aggregators:
+******************
 
 http://www.harryfox.com
 http://www.cdbaby.com
+http://www.bandcamp.com
+
 
 Music revenue streams:
+**********************
 
 http://money.futureofmusic.org/40-revenue-streams/
 
+
 Royalty collection:
+*******************
 
 SoundExchange
 ASCAP
@@ -41,14 +51,19 @@ BMI
 SESAC
 
 Gaming:
+*******
 
 http://www.kickstarter.com/projects/ouya/ouya-a-new-kind-of-video-game-console
 
+
 Sports:
+*******
 
 http://www.tribalfootball.com with footie tribal mobile app
 
+
 Music:
+******
 
 http://djwedding.ch
 http://www.pianobeat.ch
@@ -64,3 +79,8 @@ http://www.nataliegozzi.ch
 http://www.antoniomusic.ch
 http://www.silentmoon.ch
 
+
+APIs:
+*****
+
+http://blog.programmableweb.com/2012/01/18/160-music-apis
